@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Rat=function (name,khoiluong,tocdo,trangthai) {
+        this.name=name;
+        this.khoiluong=khoiluong;
+        this.tocdo=tocdo;
+        this.trangthai=trangthai;
+        this.getkhoiluong=function () {
+            return this.khoiluong;
+        };
+        this.kttrangthai=function () {
+            if (this.trangthai==false){
+                this.trangthai=false;
+                console.log(this.name+":"+ " da chet:"+false)
+            } else {
+                this.trangthai=true;
+                console.log(this.name+":" +"con song: "+true)
+            }
+        };
+        this.keu=function () {
+            console.log(this.name+ ":"+"chit chit")
+        }
+    };
+    let Cat=function (name,khoiluong,tocdomax) {
+        this.name=name;
+        this.khoiluong=khoiluong;
+        this.tocdomax=tocdomax;
+        this.keu=function () {
+            console.log(this.name+":"+"meo meo");
+        };
+        this.batchuot=function (chuot,meo) {
+            if (chuot.tocdo<= meo.tocdomax){
+                console.log("da bat duoc")
+            }else {
+                console.log("chuot nay nhanh qua");
+            }
+        };
+        this.anchuot=function () {
+            this.khoiluong++;
+            console.log("sau khi an chuot khoi luong la: "+ this.khoiluong);
+        }
+
+    };
+    let chuot=new Rat("chuot1",10,19,true);
+    let meo=new Cat("Meo1",10,21);
+    chuot.keu();
+    meo.keu();
+    let khoiluongchuot=chuot.getkhoiluong();
+    chuot.kttrangthai();
+    meo.batchuot(chuot,meo);
+    for (i=0 ;i<khoiluongchuot;i++){
+        if (khoiluongchuot>0){
+            meo.anchuot();
+            khoiluongchuot--;
+
+        }else {
+            console.log("da an het");
+            break
+        }
+    }
+
+
+</script>
+</body>
+</html>
